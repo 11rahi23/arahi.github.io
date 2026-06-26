@@ -5,87 +5,237 @@
   <title>Adibuzzaman Rahi | Autonomous Vehicle Perception</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="PhD candidate in Mechanical Engineering at Purdue University researching autonomous vehicle perception, sensor fusion, and off-road navigation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --paper: #f6f4ee;       /* warm paper background */
+      --card: #fffdf8;        /* slightly lifted card surface */
+      --ink: #20231f;         /* near-black, warm dark */
+      --ink-soft: #4b4f47;    /* secondary text */
+      --khaki: #8a6d3b;       /* trail / contour line */
+      --moss: #51694f;        /* terrain / vegetation accent */
+      --rust: #af4d2b;        /* signal accent, used sparingly */
+      --line: #d9d2c0;        /* hairline / border tone */
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Source Serif 4", Georgia, serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background: #f4f4f5;
-      color: #222222;
+      line-height: 1.65;
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 17px;
     }
-    header {
-      background: #1f2933;  /* dark charcoal, not blue */
-      color: #f9fafb;
-      padding: 2rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
+
+    h1, h2, h3 {
+      margin-top: 0;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.01em;
     }
+
+    a {
+      color: var(--rust);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(175, 77, 43, 0.35);
+    }
+    a:hover {
+      border-bottom-color: var(--rust);
+    }
+
     .container {
-      max-width: 960px;
+      max-width: 920px;
       margin: 0 auto;
       padding: 1.5rem;
     }
-    h1, h2, h3 {
-      margin-top: 0;
-      color: #111827;
+
+    /* ---------- Header ---------- */
+    header {
+      position: relative;
+      background-color: var(--ink);
+      color: #f6f4ee;
+      padding: 3rem 1.5rem 2.25rem;
+      border-bottom: 3px solid var(--rust);
     }
-    a {
-      color: #0f766e;  /* muted teal accent */
-      text-decoration: none;
+    header .container {
+      position: relative;
     }
-    a:hover {
-      text-decoration: underline;
+    header .coord-tag {
+      position: absolute;
+      top: 0;
+      right: 1.5rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: #8a8d82;
     }
-    .tagline {
-      font-size: 1.05rem;
-      margin-top: 0.25rem;
-      color: #d1d5db;
+    header h1 {
+      color: #fdfcf8;
+      font-size: 2.1rem;
+      font-weight: 700;
     }
+    header .tagline {
+      font-size: 1.02rem;
+      margin: 0.4rem 0 0;
+      color: #cfd0c6;
+      font-family: "Source Serif 4", serif;
+    }
+    header .nav-links {
+      margin-top: 1.1rem;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+    }
+    header .nav-links a {
+      color: #e7c9b9;
+      border-bottom-color: rgba(231, 201, 185, 0.4);
+    }
+    header .nav-links a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    /* ---------- Sections ---------- */
     .section {
       margin-bottom: 2rem;
-      background: #ffffff;
-      padding: 1.75rem;
-      border-radius: 0.75rem;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
+      background: var(--card);
+      padding: 1.85rem 2rem;
+      border-radius: 0.4rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 0 rgba(32, 35, 31, 0.02);
     }
+
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin: 0 0 0.5rem;
+      font-weight: 500;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.1rem;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      color: var(--moss);
+      margin-top: 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ---------- About / photo layout ---------- */
+    .about-grid {
+      display: flex;
+      gap: 1.9rem;
+      align-items: flex-start;
+    }
+    .about-photo-wrap {
+      flex: 0 0 188px;
+    }
+    .about-photo-frame {
+      position: relative;
+      width: 188px;
+      height: 188px;
+    }
+    .about-photo-frame::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 9px;
+      width: 100%;
+      height: 100%;
+      border: 1.5px solid var(--rust);
+      border-radius: 0.25rem;
+      z-index: 0;
+    }
+    .about-photo-frame img {
+      position: relative;
+      z-index: 1;
+      width: 188px;
+      height: 188px;
+      object-fit: cover;
+      border-radius: 0.25rem;
+      border: 1.5px solid var(--ink);
+      display: block;
+      margin: 0;
+    }
+    .photo-caption {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 0.85rem;
+      text-align: center;
+    }
+    .about-text {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .about-text p:first-child { margin-top: 0; }
+
+    @media (max-width: 600px) {
+      header, .container { padding: 1.25rem; }
+      .section { padding: 1.4rem 1.3rem; }
+      .about-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+      .about-photo-wrap { flex: 0 0 auto; }
+    }
+
+    /* ---------- Tags / pills ---------- */
+    .tag-row { margin-top: 1.1rem; }
     .pill {
       display: inline-block;
-      background: #e5e7eb;
-      color: #374151;
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin: 0.25rem 0.25rem 0 0;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.74rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+      background: transparent;
+      padding: 0.3rem 0;
+      margin: 0 1.1rem 0.4rem 0;
+      border-bottom: 2px solid var(--moss);
     }
+
     ul {
       padding-left: 1.2rem;
       margin-top: 0.5rem;
     }
+    li { margin-bottom: 0.35rem; }
+
     img {
       display: block;
-      margin-top: 0.75rem;
-      border-radius: 0.5rem;
+      margin-top: 0.85rem;
+      border-radius: 0.3rem;
+      border: 1px solid var(--line);
       max-width: 100%;
       height: auto;
     }
+
     .footer {
       text-align: center;
-      font-size: 0.85rem;
-      color: #6b7280;
-      padding: 1.5rem 0 2rem 0;
-      border-top: 1px solid #e5e7eb;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+      padding: 1.75rem 0 2.25rem;
+      border-top: 1px solid var(--line);
       margin-top: 1rem;
-    }
-    @media (max-width: 600px) {
-      header, .container {
-        padding: 1rem;
-      }
-      img[alt="Adibuzzaman Rahi"] {
-        float: none !important;
-        margin: 0 auto 1rem auto !important;
-        display: block;
-      }
     }
   </style>
 </head>
@@ -93,12 +243,13 @@
 
 <header>
   <div class="container">
+    <span class="coord-tag">40.4237°N, 86.9212°W</span>
     <h1>Adibuzzaman Rahi</h1>
     <p class="tagline">
       PhD Candidate, Mechanical Engineering · Purdue University<br>
       Autonomous Vehicle Perception · Sensor Fusion · Off-road Navigation
     </p>
-    <p>
+    <p class="nav-links">
       <a href="https://scholar.google.com/citations?user=qTOtY88AAAAJ" target="_blank">Google Scholar</a> ·
       <a href="https://github.com/11rahi23" target="_blank">GitHub</a> ·
       <a href="https://www.linkedin.com/in/adibuzzamanrahi" target="_blank">LinkedIn</a> ·
@@ -110,29 +261,37 @@
 <main class="container">
 
   <section class="section">
+    <p class="eyebrow">Profile</p>
     <h2>About</h2>
-    <img src="images/Website_Photo.jpg"
-         alt="Adibuzzaman Rahi"
-         width="180"
-         style="border-radius: 50%; float: right; margin-left: 1rem; margin-bottom: 0.5rem;">
-    <p>
-      I am a PhD candidate in Mechanical Engineering at Purdue University, working on perception for autonomous ground vehicles in off-road, GPS-challenged environments.
-      My research focuses on 3D object detection, semantic segmentation, and radar–camera sensor fusion for robust navigation in unstructured terrain.
-    </p>
-    <p>
-      I have 4+ years of experience designing deep learning pipelines, optimizing models for real-time deployment, and evaluating perception systems using metrics such as mAP and mIoU.
-      I also serve as a Graduate Teaching Assistant and Lab Instructor, mentoring undergraduate students in autonomy, robotics, and control.
-    </p>
-    <div>
-      <span class="pill">3D Object Detection</span>
-      <span class="pill">Semantic Segmentation</span>
-      <span class="pill">Radar–Camera Fusion</span>
-      <span class="pill">BEV Representations</span>
-      <span class="pill">PyTorch · CUDA</span>
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo-frame">
+          <img src="images/Website_Photo.jpg" alt="Adibuzzaman Rahi">
+        </div>
+        <p class="photo-caption">Adibuzzaman Rahi</p>
+      </div>
+      <div class="about-text">
+        <p>
+          I am a PhD candidate in Mechanical Engineering at Purdue University, working on perception for autonomous ground vehicles in off-road, GPS-challenged environments.
+          My research focuses on 3D object detection, semantic segmentation, and radar–camera sensor fusion for robust navigation in unstructured terrain.
+        </p>
+        <p>
+          I have 4+ years of experience designing deep learning pipelines, optimizing models for real-time deployment, and evaluating perception systems using metrics such as mAP and mIoU.
+          I also serve as a Graduate Teaching Assistant and Lab Instructor, mentoring undergraduate students in autonomy, robotics, and control.
+        </p>
+        <div class="tag-row">
+          <span class="pill">3D Object Detection</span>
+          <span class="pill">Semantic Segmentation</span>
+          <span class="pill">Radar–Camera Fusion</span>
+          <span class="pill">BEV Representations</span>
+          <span class="pill">PyTorch · CUDA</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section">
+    <p class="eyebrow">Projects</p>
     <h2>Research & Projects</h2>
 
     <h3>Radar–Camera Fusion for Off-road Navigation</h3>
@@ -186,6 +345,7 @@
   </section>
 
   <section class="section">
+    <p class="eyebrow">Publications</p>
     <h2>Publications</h2>
     <p>
       For the latest list of publications, please see my
@@ -197,6 +357,7 @@
   </section>
 
   <section class="section">
+    <p class="eyebrow">Teaching</p>
     <h2>Teaching & Mentoring</h2>
     <p>
       I have taught and mentored 50+ students through lab instruction and graduate teaching assistant roles at Purdue University, covering courses such as Control Systems, Materials, Heat Transfer, and Dynamics.
@@ -207,6 +368,7 @@
   </section>
 
   <section class="section">
+    <p class="eyebrow">Contact</p>
     <h2>Contact</h2>
     <p>
       The best way to reach me is via email (listed on my CV) or through
@@ -221,7 +383,6 @@
 </footer>
 
 <script>
-  // Set current year in footer
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
