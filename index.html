@@ -11,63 +11,80 @@
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      background: #f5f7fb;
-      color: #222;
+      background: #f4f4f5;
+      color: #222222;
     }
     header {
-      background: #111827;
+      background: #1f2933;  /* dark charcoal, not blue */
       color: #f9fafb;
       padding: 2rem 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
     }
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 1.5rem;
     }
     h1, h2, h3 {
       margin-top: 0;
+      color: #111827;
     }
     a {
-      color: #2563eb;
+      color: #0f766e;  /* muted teal accent */
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
     .tagline {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       margin-top: 0.25rem;
       color: #d1d5db;
     }
     .section {
       margin-bottom: 2rem;
       background: #ffffff;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+      padding: 1.75rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
     }
     .pill {
       display: inline-block;
       background: #e5e7eb;
       color: #374151;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       border-radius: 999px;
       font-size: 0.8rem;
-      margin: 0.2rem 0.2rem 0 0;
+      margin: 0.25rem 0.25rem 0 0;
     }
     ul {
       padding-left: 1.2rem;
       margin-top: 0.5rem;
+    }
+    img {
+      display: block;
+      margin-top: 0.75rem;
+      border-radius: 0.5rem;
+      max-width: 100%;
+      height: auto;
     }
     .footer {
       text-align: center;
       font-size: 0.85rem;
       color: #6b7280;
       padding: 1.5rem 0 2rem 0;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 1rem;
     }
     @media (max-width: 600px) {
       header, .container {
         padding: 1rem;
+      }
+      img[alt="Adibuzzaman Rahi"] {
+        float: none !important;
+        margin: 0 auto 1rem auto !important;
+        display: block;
       }
     }
   </style>
@@ -94,10 +111,10 @@
 
   <section class="section">
     <h2>About</h2>
-     <img src="images/Website_Photo.jpg"
-       alt="Adibuzzaman Rahi"
-       width="180"
-       style="border-radius: 50%; float: right; margin-left: 1rem; margin-bottom: 0.5rem;">
+    <img src="images/Website_Photo.jpg"
+         alt="Adibuzzaman Rahi"
+         width="180"
+         style="border-radius: 50%; float: right; margin-left: 1rem; margin-bottom: 0.5rem;">
     <p>
       I am a PhD candidate in Mechanical Engineering at Purdue University, working on perception for autonomous ground vehicles in off-road, GPS-challenged environments.
       My research focuses on 3D object detection, semantic segmentation, and radar–camera sensor fusion for robust navigation in unstructured terrain.
@@ -124,42 +141,41 @@
       This includes hierarchical proposal-conditioned BEV segmentation and terrain classification for GNSS-free navigation.
     </p>
     <img src="images/three_panel_vis5.png"
-       alt="Off-road terrain semantic segmentation in BEV"
-       style="max-width: 100%; height: auto; margin-top: 0.75rem; border-radius: 0.5rem;">
+         alt="Off-road terrain semantic segmentation in BEV">
 
     <h3>Deep Semantic Segmentation Model and Dataset for Off-Road Terrain</h3>
     <p>
-      I developed an off-road semantic segmentation dataset of 1,414 images by refining labels from the Yamaha–CMU Off-Road Dataset and augmenting synthetic samples to balance terrain classes. Building on this dataset, I designed a ResNet34–U-Net fusion architecture that achieves 87% accuracy at 24 Hz and generalizes strongly to YCOR, Rellis-3D, and RUGD benchmarks without fine-tuning. This demonstrates robust feature representations for diverse off-road environments and supports real-time traversability analysis for autonomous ground vehicles.
+      I developed an off-road semantic segmentation dataset of 1,414 images by refining labels from the Yamaha–CMU Off-Road Dataset and augmenting synthetic samples to balance terrain classes.
+      Building on this dataset, I designed a ResNet34–U-Net fusion architecture that achieves 87% accuracy at 24 Hz and generalizes strongly to YCOR, Rellis-3D, and RUGD benchmarks without fine-tuning.
+      This demonstrates robust feature representations for diverse off-road environments and supports real-time traversability analysis for autonomous ground vehicles.
     </p>
     <img src="images/Graphical Abstract_Terrain.jpg"
-       alt="Off-Road Semantic Segmentation Architecture"
-       style="max-width: 100%; height: auto; margin-top: 0.75rem; border-radius: 0.5rem;">
+         alt="Off-Road Semantic Segmentation Architecture">
     <p>
       <a href="https://github.com/11rahi23/Offroad_terrain_segmentation" target="_blank">View repository</a>
     </p>
 
     <h3>Predictive Enhancement of Detection (PrED)</h3>
     <p>
-      I created PrED, a predictive enhancement algorithm that combines object detection with Kalman filtering and a Predictability Index to recover low-confidence and missed detections in data-limited scenarios. Integrated with camera-based detectors in moving off-road tests, PrED delivers an 11% improvement in detection accuracy and a 7% gain in MOTA, boosting temporal consistency and reliability of perception pipelines in challenging environments.
+      I created PrED, a predictive enhancement algorithm that combines object detection with Kalman filtering and a Predictability Index to recover low-confidence and missed detections in data-limited scenarios.
+      Integrated with camera-based detectors in moving off-road tests, PrED delivers an 11% improvement in detection accuracy and a 7% gain in MOTA, boosting temporal consistency and reliability of perception pipelines in challenging environments.
     </p>
     <img src="images/PrED.png"
-       alt="PrED object tracking visualization"
-       style="max-width: 100%; height: auto; margin-top: 0.75rem; border-radius: 0.5rem;">
+         alt="PrED object tracking visualization">
     <p>
       <a href="https://github.com/11rahi23/PrED" target="_blank">View repository</a>
     </p>
 
     <h3>Physics-based Radar Sensor Modeling in Unreal Engine</h3>
     <p>
-      I built a high-fidelity automotive radar sensor model in Unreal Engine using C++ that couples physics-based signal behavior with point cloud processing and 3D grid-DBSCAN clustering. The simulated sensor achieves 89% correlation with real radar measurements, enabling sim-to-real validation of perception and control algorithms and providing a controllable testbed for sensor fusion research.
+      I built a high-fidelity automotive radar sensor model in Unreal Engine using C++ that couples physics-based signal behavior with point cloud processing and 3D grid-DBSCAN clustering.
+      The simulated sensor achieves 89% correlation with real radar measurements, enabling sim-to-real validation of perception and control algorithms and providing a controllable testbed for sensor fusion research.
     </p>
-     <img src="images/Graphical_Abstract_Radar.png"
-       alt="PrED object tracking visualization"
-       style="max-width: 100%; height: auto; margin-top: 0.75rem; border-radius: 0.5rem;">
+    <img src="images/Graphical_Abstract_Radar.png"
+         alt="Automotive radar modeling graphical abstract">
     <p>
-      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10666669" target="_blank">Read Papery</a>
+      <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10666669" target="_blank">Read paper</a>
     </p>
-
 
     <h3>Additional Work</h3>
     <ul>
@@ -173,7 +189,7 @@
     <h2>Publications</h2>
     <p>
       For the latest list of publications, please see my
-      <a href="https://scholar.google.com/citations?user=qTOtY88AAAAJ" target="_blank">Google Scholar profile</a>.[web:32]
+      <a href="https://scholar.google.com/citations?user=qTOtY88AAAAJ" target="_blank">Google Scholar profile</a>.
     </p>
     <p>
       Selected work includes research on semantic segmentation for autonomous systems, crop row detection for precision agriculture, and sensor fusion methods for off-road ground vehicles.
@@ -183,10 +199,10 @@
   <section class="section">
     <h2>Teaching & Mentoring</h2>
     <p>
-      I have taught and mentored 50+ students through lab instruction and graduate teaching assistant roles at Purdue University, covering courses such as Control Systems, Materials, Heat Transfer, and Dynamics.[memory:3]
+      I have taught and mentored 50+ students through lab instruction and graduate teaching assistant roles at Purdue University, covering courses such as Control Systems, Materials, Heat Transfer, and Dynamics.
     </p>
     <p>
-      I also previously served as a Lecturer at Sonargaon University in Bangladesh, delivering core Mechanical Engineering courses and supervising student projects in robotics and control.[memory:3]
+      I also previously served as a Lecturer at Sonargaon University in Bangladesh, delivering core Mechanical Engineering courses and supervising student projects in robotics and control.
     </p>
   </section>
 
@@ -194,7 +210,7 @@
     <h2>Contact</h2>
     <p>
       The best way to reach me is via email (listed on my CV) or through
-      <a href="https://www.linkedin.com/in/adibuzzamanrahi" target="_blank">LinkedIn</a>.[web:23]
+      <a href="https://www.linkedin.com/in/adibuzzamanrahi" target="_blank">LinkedIn</a>.
     </p>
   </section>
 
