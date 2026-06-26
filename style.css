@@ -286,6 +286,47 @@ img {
   font-size: 0.8rem;
 }
 
+video {
+  display: block;
+  margin-top: 0.85rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--line);
+  max-width: 100%;
+  width: 100%;
+  background: var(--ink);
+}
+
+.gif-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
+}
+.gif-item {
+  flex: 1 1 0;
+  min-width: 180px;
+}
+.gif-item img {
+  margin-top: 0;
+  width: 100%;
+}
+.gif-caption {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+.gif-caption .arrow {
+  color: var(--rust);
+}
+
+@media (max-width: 600px) {
+  .gif-row { flex-direction: column; }
+}
+
 .footer {
   text-align: center;
   font-family: "IBM Plex Mono", monospace;
